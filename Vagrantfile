@@ -70,13 +70,11 @@ Vagrant.configure(2) do |config|
   # SHELL
 end
 
+# gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 # curl -sSL https://get.rvm.io | bash -s stable
 # rvm install 2.2
-# apt-get install ruby1.9.1-dev
-# apt-get install libghc-zlib-dev
-# apt-get install libsqlite3-dev
-# apt-get install install nodejs
-# apt-get install libssl-dev
+# bash --login
+# apt-get install ruby1.9.1-dev libghc-zlib-dev libsqlite3-dev nodejs libssl-dev
 # cd /vagrant
 # bundle install
 # rails server --binding 0.0.0.0
