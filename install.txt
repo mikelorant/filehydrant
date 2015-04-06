@@ -1,0 +1,5 @@
+apt-get install ruby1.9.1-dev
+apt-get install libghc-zlib-dev
+apt-get install libsqlite3-dev
+apt-get install install nodejs
+apt-get install libssl-dev

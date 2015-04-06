@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 3000, host: 8080
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -69,3 +69,14 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
 end
+
+# curl -sSL https://get.rvm.io | bash -s stable
+# rvm install 2.2
+# apt-get install ruby1.9.1-dev
+# apt-get install libghc-zlib-dev
+# apt-get install libsqlite3-dev
+# apt-get install install nodejs
+# apt-get install libssl-dev
+# cd /vagrant
+# bundle install
+# rails server --binding 0.0.0.0
