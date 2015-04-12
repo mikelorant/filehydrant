@@ -43,13 +43,15 @@ Vagrant.configure(2) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-  #   vb.memory = "1024"
-  # end
+  config.vm.provider "virtualbox" do |vb|
+    # Display the VirtualBox GUI when booting the machine
+    # vb.gui = true
+
+    # Customize the amount of memory on the VM:
+    vb.memory = "1024"
+
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+  end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
@@ -64,17 +66,18 @@ Vagrant.configure(2) do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   sudo apt-get update
-  #   sudo apt-get install -y apache2
-  # SHELL
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    sudo apt-get install -y ruby1.9.1-dev libghc-zlib-dev libsqlite3-dev nodejs libssl-dev
+    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    curl -sSL https://get.rvm.io | bash -s stable --ruby
+    source ~/.rvm/scripts/rvm
+    cd /vagrant
+    bundle install
+    echo vagrant ssh
+    echo cd /vagrant
+    echo export TRANSMISSION_HOST=HOST
+    echo export TRANSMISSION_USERNAME=USERNAME
+    echo export TRANSMISSION_PASSWORD=PASSWORD
+    echo rails server --binding 0.0.0.0
+  SHELL
 end
-
-# gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-# curl -sSL https://get.rvm.io | bash -s stable
-# rvm install 2.2
-# bash --login
-# apt-get install ruby1.9.1-dev libghc-zlib-dev libsqlite3-dev nodejs libssl-dev
-# cd /vagrant
-# bundle install
-# rails server --binding 0.0.0.0
