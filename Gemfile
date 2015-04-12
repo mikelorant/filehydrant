@@ -38,12 +38,16 @@ end
 
 gem 'puma', '~> 2.11'
 gem 'high_voltage', '~> 2.2'
-gem 'coffee-rails'
-gem 'slim-rails', '~> 3.0'
+
+gem 'transmission-rpc-ruby'
+
 gem 'angular-rails-templates', '~> 0.1'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-angular', '~> 1.3'
-  gem 'rails-assets-bootstrap', '~> 3.3'
+  gem 'rails-assets-semantic-ui', '~> 1.11'
   gem 'rails-assets-angular-route', '~> 1.3'
+  gem 'rails-assets-angular-resource', '~> 1.3'
+  gem 'rails-assets-angular-moment', '~> 0.10'
+  gem 'rails-assets-angular-pretty-bytes', '~> 1.0'
 end

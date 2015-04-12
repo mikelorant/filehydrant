@@ -12,21 +12,21 @@
  *
  *= require_tree .
  *= require_self
- *= require bootstrap
+ *= require semantic-ui
  */
-.done-true {
-    text-decoration: line-through;
+
+tbody td {
+    font-size: 12px;
+}
+
+.name {
+    color: #1c94c4;
+}
+
+.user {
+    color: #1c94c4;
+}
+
+.day {
     color: grey;
-}
-
-body {
-    padding-top: 50px;
-}
-.starter-template {
-    padding: 40px 15px;
-    text-align: center;
-}
-
-.todo {
-    text-align: left;
 }

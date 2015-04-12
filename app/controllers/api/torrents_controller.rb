@@ -1,10 +1,9 @@
 class Api::TorrentsController < ApplicationController
   def index
-    hash = {
-      key1: :value1,
-      key2: :value2
-    }
+    @torrents = Torrent.new.all
+  end
 
-    render json: hash
+  def show
+    @torrent = Torrent.new.find(params[:id])
   end
 end
