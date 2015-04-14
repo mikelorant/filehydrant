@@ -51,3 +51,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-angular-moment', '~> 0.10'
   gem 'rails-assets-angular-pretty-bytes', '~> 1.0'
 end
+
+# Jbuilder broken with >= 3.0
+gem 'sprockets', '~> 2.12'
