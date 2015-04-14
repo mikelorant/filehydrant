@@ -15,6 +15,7 @@
 var app = angular.module('app', [
     'filehydrant.controllers.navigation',
     'filehydrant.controllers.torrents',
+    'filehydrant.services.torrent',
     'ngRoute',
     'ngResource',
     'angularMoment',

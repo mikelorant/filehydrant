@@ -1,42 +1,48 @@
-<div class="ui blue menu">
-    <a class="active inverted item">Last 24 hours</a>
-    <a class="item">Last 7 days</a>
-    <a class="item">Last 30 Days</a>
-    <a class="item">All</a>
-    <a class="item">Search Results</a>
-    <div class="right menu">
-        <div class="item">
-            <div class="ui transparent icon input">
-                <input placeholder="Search..." type="text">
-                <i class="search link icon"></i>
+<div ng-if="loaded">
+    <div class="ui blue menu">
+        <a class="active inverted item">Last 24 hours</a>
+        <a class="item">Last 7 days</a>
+        <a class="item">Last 30 Days</a>
+        <a class="item">All</a>
+        <a class="item">Search Results</a>
+        <div class="right menu">
+            <div class="item">
+                <div class="ui transparent icon input">
+                    <input placeholder="Search..." type="text">
+                    <i class="search link icon"></i>
+                </div>
             </div>
         </div>
     </div>
+
+    <table class="ui compact celled striped table" >
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Added</th>
+                <th>Status</th>
+                <th><i class="long arrow down icon"></i></th>
+                <th><i class="long arrow up icon"></i></th>
+                <th>Ratio</th>
+                <th>Uploaded</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="torrent in torrents| orderBy: '-addedDate'">
+                <td class="name">{{ torrent.name }}</td>
+                <td>{{ torrent.totalSize | prettyBytes }}</td>
+                <td>{{ torrent.addedDate * 1000 | date }}</td>
+                <td>{{ torrent.status }}</td>
+                <td>{{ torrent.rateDownload }}</td>
+                <td>{{ torrent.rateUpload }}</td>
+                <td>{{ torrent.uploadRatio }}</td>
+                <td>{{ torrent.uploadedEver | prettyBytes }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
-<table class="ui compact celled striped table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Size</th>
-            <th>Added</th>
-            <th>Status</th>
-            <th><i class="long arrow down icon"></i></th>
-            <th><i class="long arrow up icon"></i></th>
-            <th>Ratio</th>
-            <th>Uploaded</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="torrent in torrents| orderBy: '-addedDate'">
-            <td class="name">{{ torrent.name }}</td>
-            <td>{{ torrent.totalSize | prettyBytes }}</td>
-            <td>{{ torrent.addedDate * 1000 | date }}</td>
-            <td>{{ torrent.status }}</td>
-            <td>{{ torrent.rateDownload }}</td>
-            <td>{{ torrent.rateUpload }}</td>
-            <td>{{ torrent.uploadRatio }}</td>
-            <td>{{ torrent.uploadedEver | prettyBytes }}</td>
-        </tr>
-    </tbody>
-</table>
+<div ng-if="! loaded">
+    <div class="ui active centered inline text loader">Loading</div>
+</div>
