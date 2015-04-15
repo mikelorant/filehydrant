@@ -26,5 +26,7 @@ module Filehydrant
     config.assets.paths << Rails.root.join('app/assets/templates')
 
     config.cache_store = :memory_store
+
+	  config.middleware.use Rack::Deflater
   end
 end
