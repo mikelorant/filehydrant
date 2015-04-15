@@ -1,3 +1,4 @@
 angular
     .module('filehydrant.controllers.navigation', [])
-    .controller('NavigationController', function($scope) {});
+    .controller('NavigationController', function ($scope) {
+    });

@@ -1,12 +1,12 @@
 angular
-    .module('filehydrant.services.torrent',[])
+    .module('filehydrant.services.torrent', [])
     .factory('TorrentFactory', function ($resource) {
 
-    factory = {};
+        factory = {};
 
-    factory.getTorrent = function() {
-        return $resource("api/torrents/:id", { id: '@id' });
-    };
+        factory.getTorrent = function () {
+            return $resource("api/torrents/:id", {id: '@id'});
+        };
 
-    return factory;
-});
+        return factory;
+    });

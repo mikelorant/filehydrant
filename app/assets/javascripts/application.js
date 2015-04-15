@@ -23,7 +23,7 @@ var app = angular.module('app', [
     'templates'
 ]);
 
-app.config(function($routeProvider, $locationProvider) {
+app.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when('/torrents', {
         controller: 'TorrentsController',
         templateUrl: 'torrents.html'
